@@ -13,3 +13,11 @@
 <p>
 	Description: <%= @article.description %>
 </p>
+
+<p>
+Created by : <%= @article.user.username %>
+</p>
+
+<p>
+Time created : <%= time_ago_in_words(@article.created_at) %>
+</p>
