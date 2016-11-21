@@ -1,0 +1,11 @@
+<h1>Weclome, to<%= @user.username %>'s profile</h1>
+
+<div class="row">
+	<div class="col-xs-4">
+		<%= gravatar_for @user, size:150 %>
+	</div>
+</div>
+
+<h4><%= @user.username%>'s articles </h4>
+
+<%= render 'articles/article', list: @user.articles %>
