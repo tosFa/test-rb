@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  resources :comments
 	root to: 'welcome#home'
 
-	get 'signup', to: 'users#new'
+
 	resources :users, except: [ :new ]
 
   resources :articles
+  resources :categories
 
+	get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
 	post 'login', to: 'sessions#create'
 	delete 'logout', to: 'sessions#destroy'

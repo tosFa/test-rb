@@ -1,7 +1,7 @@
 <% if obj.errors.any? %>
-	<ul>
+	<ul class="errors">
 		<% obj.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
+			<li class="validation-error"><%= msg %></li>
 		<% end %>
 	</ul>
 <% end %>
