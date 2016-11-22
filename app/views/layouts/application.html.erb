@@ -18,6 +18,7 @@
 					<li>Profile links</li>
 					<li>
 						<ul>
+							<li><%= 'Admin' if current_user.admin? %></li>
 							<li><%= link_to 'Edit profile', edit_user_path(current_user) %></li>
 							<li><%= link_to 'View profile', user_path(current_user) %></li>
 						</ul>
