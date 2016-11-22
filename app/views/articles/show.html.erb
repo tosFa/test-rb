@@ -2,10 +2,11 @@
 <p>
 	<%= link_to "List articles", articles_path %>
 </p>
-<p>
-	<%= link_to "Edit article", edit_article_path(@article) %>
-</p>
-
+<% if logged_in? && current_user == @article.user %>
+	<p>
+		<%= link_to "Edit article", edit_article_path(@article) %>
+	</p>
+<% end %>
 
 <p>
 	Title: <%= @article.title %>

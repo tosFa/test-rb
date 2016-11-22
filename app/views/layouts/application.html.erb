@@ -9,6 +9,35 @@
   </head>
 
   <body>
+
+		<nav>
+			<% if logged_in? %>
+				<%= link_to "Logout", logout_path, method: :delete %>
+
+				<ul>
+					<li>Profile links</li>
+					<li>
+						<ul>
+							<li><%= link_to 'Edit profile', edit_user_path(current_user) %></li>
+							<li><%= link_to 'View profile', user_path(current_user) %></li>
+						</ul>
+					</li>
+				</ul>
+
+			<% else %>
+				<%= link_to "Login", login_path %>
+				<%= link_to "Signup", signup_path %>
+			<% end %>
+
+			<%= link_to 'Users', users_path %>
+			<%=
+				if logged_in?
+				 link_to 'Create article', new_article_path
+			 	end
+			%>
+
+		</nav>
+
 		<%= render  'layouts/messages' %>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
