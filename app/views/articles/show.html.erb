@@ -22,3 +22,9 @@ Created by : <%= @article.user.username %>
 <p>
 Time created : <%= time_ago_in_words(@article.created_at) %>
 </p>
+<% if @article.categories.any? %>
+	<p>
+		Categories <%= render @article.categories %>
+	</p>
+<% end %>
+
