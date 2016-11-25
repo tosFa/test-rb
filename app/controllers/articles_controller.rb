@@ -15,14 +15,14 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.new(article_params)
 		@article.user = current_user
-		respond_to do |format|
-			if @article.save
-				flash[:notice] = "Article was successfully created"
-				redirect_to article_path(@article)
-			else
-				format.html { render :new }
-			end
+
+		if @article.save
+			flash[:notice] = "Article was successfully created"
+			redirect_to article_path(@article)
+		else
+			render 'new'
 		end
+
 
 	end
 
